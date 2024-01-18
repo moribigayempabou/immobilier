@@ -1,0 +1,271 @@
+<odoo>
+  <data>
+
+       <!--Onglet des  Maisons -->
+    <record model="ir.ui.view" id="immobilier_maison_form">
+      <field name="name">immobilier.maison.form</field>
+      <field name="model">immobilier.maison</field>
+      <field name="arch" type="xml">
+        <form string="Maison">
+		  <sheet>
+		    <group>
+             <field name="reference"/>
+             <field name="typem"/>
+             <field name="ville"/>
+			 <field name="quartier"/>
+             <field name="destination"/>
+			 <field name="prixlocation"/>
+             <field name="prixvente"/>
+			 <field name="geoloc"/>
+			 <field name="notes"/>
+			</group>
+		  </sheet>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="immobilier_maison_tree">
+      <field name="name">immobilier.maison.tree</field>
+      <field name="model">immobilier.maison</field>
+      <field name="arch" type="xml">
+        <tree string="Maison">
+             <field name="reference"/>
+             <field name="typem"/>
+             <field name="destination"/>
+			 <field name="prixlocation"/>
+             <field name="prixvente"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="immobilier_maison_search">
+      <field name="name">immobilier.maison.search</field>
+      <field name="model">immobilier.maison</field>
+      <field name="arch" type="xml">
+        <search string="Maison">
+             <field name="reference"/>
+             <field name="typem"/>
+             <field name="destination"/>
+        </search>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="immobilier_maison_action">
+      <field name="name">Maisons</field>
+      <field name="res_model">immobilier.maison</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--Onglet des  Locations -->
+  <record model="ir.ui.view" id="immobilier_location_form">
+    <field name="name">immobilier.location.form</field>
+    <field name="model">immobilier.location</field>
+    <field name="arch" type="xml">
+      <form string="Location">
+        <sheet>
+          <group>
+           <field name="idclient"/>
+           <field name="idmaison"/>
+           <field name="datedebut"/>
+           <field name="datefin"/>
+           <field name="prix"/>
+           <field name="periodicite"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record model="ir.ui.view" id="immobilier_location_tree">
+    <field name="name">immobilier.location.tree</field>
+    <field name="model">immobilier.location</field>
+    <field name="arch" type="xml">
+      <tree string="Location">
+        <field name="idclient"/>
+        <field name="idmaison"/>
+        <field name="datedebut"/>
+        <field name="datefin"/>
+        <field name="prix"/>
+        <field name="periodicite"/>
+      </tree>
+    </field>
+  </record>
+  <record model="ir.ui.view" id="immobilier_location_search">
+    <field name="name">immobilier.location.search</field>
+    <field name="model">immobilier.location</field>
+    <field name="arch" type="xml">
+      <search string="Location">
+        <field name="idclient"/>
+        <field name="idmaison"/>
+      </search>
+    </field>
+  </record>
+  <!-- actions opening views on models -->
+  <record model="ir.actions.act_window" id="immobilier_location_action">
+    <field name="name">Locations</field>
+    <field name="res_model">immobilier.location</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+
+
+<!-- Onglet du Client -->
+<record model="ir.ui.view" id="immobilier_client_form">
+  <field name="name">immobilier.client.form</field>
+  <field name="model">immobilier.client</field>
+  <field name="arch" type="xml">
+    <form string="Client">
+      <sheet>
+        <group>
+         <field name="nom"/>
+         <field name="datenaiss"/>
+         <field name="contact"/>
+        </group>
+      </sheet>
+    </form>
+  </field>
+</record>
+<record model="ir.ui.view" id="immobilier_client_tree">
+  <field name="name">immobilier.client.tree</field>
+  <field name="model">immobilier.client</field>
+  <field name="arch" type="xml">
+    <tree string="Client">
+      <field name="nom"/>
+      <field name="datenaiss"/>
+      <field name="contact"/>
+    </tree>
+  </field>
+</record>
+<record model="ir.ui.view" id="immobilier_client_search">
+  <field name="name">immobilier.client.search</field>
+  <field name="model">immobilier.client</field>
+  <field name="arch" type="xml">
+    <search string="Client">
+      <field name="nom"/>
+      <field name="contact"/>
+    </search>
+  </field>
+</record>
+<!-- actions opening views on models -->
+<record model="ir.actions.act_window" id="immobilier_client_action">
+  <field name="name">Clients</field>
+  <field name="res_model">immobilier.client</field>
+  <field name="view_mode">tree,form</field>
+</record>
+
+
+
+
+
+<!--  Onglet des Ventes -->
+
+<record model="ir.ui.view" id="immobilier_client_form">
+  <field name="name">immobilier.vente.form</field>
+  <field name="model">immobilier.vente</field>
+  <field name="arch" type="xml">
+    <form string="Vente">
+      <sheet>
+        <group>
+         <field name="idclient"/>
+         <field name="idmaison"/>
+         <field name="dateacq"/>
+         <field name="prix"/>
+         <field name="periodicite"/>
+        </group>
+      </sheet>
+    </form>
+  </field>
+</record>
+<record model="ir.ui.view" id="immobilier_vente_tree">
+  <field name="name">immobilier.vente.tree</field>
+  <field name="model">immobilier.vente</field>
+  <field name="arch" type="xml">
+    <tree string="Vente">
+         <field name="idclient"/>
+         <field name="idmaison"/>
+         <field name="dateacq"/>
+         <field name="prix"/>
+         <field name="periodicite"/>
+    </tree>
+  </field>
+</record>
+<record model="ir.ui.view" id="immobilier_vente_search">
+  <field name="name">immobilier.vente.search</field>
+  <field name="model">immobilier.vente</field>
+  <field name="arch" type="xml">
+    <search string="Vente">
+      <field name="idclient"/>
+      <field name="idmaison"/>
+    </search>
+  </field>
+</record>
+<!-- actions opening views on models -->
+<record model="ir.actions.act_window" id="immobilier_vente_action">
+  <field name="name">Ventes</field>
+  <field name="res_model">immobilier.vente</field>
+  <field name="view_mode">tree,form</field>
+</record>
+
+
+
+
+
+<!--Onglet des Versements -->
+
+<record model="ir.ui.view" id="immobilier_versement_form">
+  <field name="name">immobilier.versement.form</field>
+  <field name="model">immobilier.versement</field>
+  <field name="arch" type="xml">
+    <form string="Versement">
+      <sheet>
+        <group>
+         <field name="datevers"/>
+         <field name="montant"/>
+         <field name="nomremettant"/>
+         <field name="idlocation"/>
+         <field name="idvente"/>
+        </group>
+      </sheet>
+    </form>
+  </field>
+</record>
+<record model="ir.ui.view" id="immobilier_versement_tree">
+  <field name="name">immobilier.versement.tree</field>
+  <field name="model">immobilier.versement</field>
+  <field name="arch" type="xml">
+    <tree string="Versement">
+      <field name="datevers"/>
+      <field name="montant"/>
+      <field name="nomremettant"/>
+      <field name="idlocation"/>
+      <field name="idvente"/>
+    </tree>
+  </field>
+</record>
+<record model="ir.ui.view" id="immobilier_versement_search">
+  <field name="name">immobilier.versement.search</field>
+  <field name="model">immobilier.versement</field>
+  <field name="arch" type="xml">
+    <search string="Versement">
+      <field name="idlocation"/>
+      <field name="idvente"/>
+    </search>
+  </field>
+</record>
+<!-- actions opening views on models -->
+<record model="ir.actions.act_window" id="immobilier_versement_action">
+  <field name="name">Versements</field>
+  <field name="res_model">immobilier.versement</field>
+  <field name="view_mode">tree,form</field>
+</record>
+
+<!-- les differents menus -->
+<menuitem id="immobilier" name="Immobilier"/>
+<menuitem id="immobilier_param" name="Paramètres" parent="immobilier" sequence="10"/>
+<menuitem id="immobilier_param_maison" name="Maisons" parent="immobilier_param" sequence="10" action="immobilier_maison_action"/>
+<menuitem id="immobilier_param_client" name="Clients" parent="immobilier_param" sequence="20" action="immobilier_client_action"/>
+
+<menuitem id="immobilier_location" name="Locations" parent="immobilier" sequence="30" action="immobilier_location_action"/>
+<menuitem id="immobilier_vente" name="Ventes" parent="immobilier" sequence="20" action="immobilier_vente_action"/>
+<menuitem id="immobilier_versement" name="Versements" parent="immobilier" sequence="40" action="immobilier_versement_action"/>
+
+  </data>
+</odoo>
